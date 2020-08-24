@@ -27,5 +27,24 @@
 - Naming/ docker tag
 - Local delete/ docker rmi
 
+## Dockerhub
+- What is dockerhub? Github but for images
+- Registering
+- Authenticating with commandline
+- Pulling
+
 ## Tutorial
-Good as is. Aesthetic and readability rewrite
+- Reduce number of screenshots
+- Use console output or code blocks where appropriate
+
+Tutorial:
+
+1
+- register and set up dockerhub
+
+2
+- search for image
+- download image
+- rename/add tag
+- upload to own repository
+- delete locally
