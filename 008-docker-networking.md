@@ -44,8 +44,23 @@
 
 - Bridged networks are used to connect containers together on the same machine
 - The main features of bridged networks are:
-    - 
+    - Isolated networks
+    - Automatic DNS resolution
+    - Connect/Disconnect containers easily
 
 ### Managing Networks
 
 - CLI commands
+    - This can stay the same as it is right now
+
+### Tutorial
+
+- Two containers: NGINX and a static Python app
+    - Python app should be in an image you can pull down from docker hub
+    - NGINX will reverse proxy redirect http traffic to the python app on 5000
+    - Change the configuration of the NGINX container by exec-ing in rather than using a bind mount (because bind mounts are introduced in a later module)
+
+### Exercises
+
+1. Get the static Flask app in the Trio Task working with NGINX as a reverse proxy
+2. Get the database Flask app in the Trio Task wokring with NGINX **and** a MySQL container
