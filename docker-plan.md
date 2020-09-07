@@ -1,4 +1,4 @@
-# Stage 1 - Review Process
+# Docker Module Design
 
 Review each module in the Docker topic. For each module, make note of where the modules are lacking, and produce a bullet-pointed structure for how it should be constructed.
 
@@ -17,7 +17,6 @@ When thinking about your module structure, make sure it hits the following desig
 - Modules should contextualise the **why** of a particular part of Docker using a **scenario** or **problem**, then providing the solution
 - Concepts should be explained **visually** (as well as textually) wherever appropriate - diagrams diagrams diagrams!!
 - Exercises should give delegates more practical scenarios to employ what they've learnt in the theory
-- Modules should be as short as possible, both in terms of content and in terms of literal page length
 
 ## General Structure
 
@@ -39,5 +38,3 @@ Below is a general structure for how the modules should be laid out. As with the
 - Exercise
     - An unguided exercise to allow them to apply what they have learnt
     - Provide stretch goals
-
-## Due EOB Monday
