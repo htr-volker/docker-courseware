@@ -1,0 +1,44 @@
+# Compose Configuration
+
+- Overview
+    - Compose configuration files are written in YAML syntax
+    - YAML syntax consists of a list of key/value pairs
+    - Compose uses this format to declare how a group of containers should be configured, including its base image, environment variables, build contexts, ports, bind mounts and volumes
+    - By the end of this module you should
+        - Be familiar with the YAML syntax Compose uses for its configuration files
+        - Be able to create your own `docker-compose.yaml` files for your own containerised applications
+- Version
+    - Explanation of what the version number is (it's the compose file synatx, not the version of compose)
+    - Needs to be specified at the top of the file in quotes
+    - Example
+- Defining a Service
+    - Explanation of what a service is (a container that can be replicated)
+    - Requires a valid image or build property
+    - Example
+    - Container Names
+        - Default container names
+        - Setting container name
+    - Service Dependencies
+- Building
+    - Build
+    - Build context
+    - Build Arguments
+    - Image
+    - Using Build and Image together
+- Environment Variables
+    - Environment Variables
+        - Passing env vars from the session using ${env}
+    - Environment Files
+- Ports
+    - Target Port
+    - Published Port
+    - Protocol
+- Volumes
+    - Volumes
+        - Have to be defined under a volumes section
+    - Bind Mounts
+- Tutorial
+    - This can stay the same
+- Exercise
+    - Trio Task
+    - Containerise an application of your own and deploy it using a docker-compose.yaml file

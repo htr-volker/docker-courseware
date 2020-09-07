@@ -1,0 +1,38 @@
+# Compose Introduction
+
+- Overview
+    - Compose is a tool for Docker that llows you to define and run multiple Docker containers with a single command
+    - Compose uses configuration files to declare the 
+    - Compose is an excellent tool for defining and creating collections of containers and is particularly handy for spinning up microservice applications
+- Use Case
+    - Consider a 4-part microserviced application that consists of a reverse proxy, a frontend, a backend and a persistent database, each in their own container
+    - For an application like this to work, we will need:
+        - Four containers, each with their own image and environment variables set
+        - A volume to persist the data in the database
+        - A bind mount to overwrite the nginx.conf file, allowing us to define its behaviour as a reverse proxy
+        - Relevant ports published
+        - A network to allow our services to communicate with one another
+    - That's a lot to set up for a relatively simple microservice application
+    - We could set it all up using Docker CLI commands, however:
+        - It would take a lot longer
+        - Potential for human error
+        - Could create a script, but it would likely be very complex
+    - Docker Compose speeds up this process through use of configuration files
+- Docker Compose
+    - Compose uses configuration files to allow us to *declare* what Docker resources we want, rather than manually creating them ourselves
+    - It does this using YAML files - a highly readable data format which is essentially a list of key/value pairs - you specify
+        - Should be called `docker-compose.yaml` or `docker-compose.yml`
+        - Think of it like writing a shopping list - you're just specifying what you want from the shop, not how to get it
+    - Once you've written the file, you simply need to enter the command `docker-compose up` and all your containers will be created and connected to a bridge network for you with the exact configuration you wanted
+    - Benefits:
+        - Build multiple images/containers with one command
+        - Easy to read and edit
+        - Quicker to make changes
+        - Automatically puts your containers into a network, making it ideal for deploying microservice architected applications as one entity
+        - Makes use of *services*, which allow you create replicas of your containers to introduce *redundancy* to your containerised applications
+- Installation
+    - This can stay the same
+- Tutorial
+    - This can stay the same
+- Exercise
+    - No exercise
