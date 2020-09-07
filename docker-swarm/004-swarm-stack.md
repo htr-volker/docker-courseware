@@ -1,1 +1,45 @@
+# Swarm Stack
 
+- Overview
+    - Stacks allow us to deploy multiple services at once from a configuration file
+    - Stacks make use of docker-compose.yaml file, though it's worth noting that parts of the configuration you would use with Compose will be ignored by Stacks
+    - Stacks also allow us to easily perform a rolling update across multiple services, i.e. an update to a web application that gradually replaces outdated containers with updated versions to make sure there is no downtime
+    - By the end of this module you should know:
+        - What a Stack is and why we use them
+        - How to create a Stack
+        - How to perform a rolling update with `docker stack deploy`
+- Managing and Updating Services
+    - Services can be updated individually with the command `docker service update --image [IMAGE_NAME]`
+    - Microservice applications will often require multiple services to updated at once for them to function correctly
+    - Performing these updates individually is cumbersome and lengthy
+- Stacks
+    - Stacks in Docker Swarm allow us to deploy, manage and perform rolling updates across multiple services using a configuration file
+    - The configuration file it uses is almost identical to Compose's `docker-compose.yaml` file, and in fact Compose files can be used with Stack
+        - Some functionality is deprecated, however
+    - Once we have defined our configuration file, we simply need to run the following command:
+        - `docker stack deploy --compose-file docker-compose.yaml [STACK_NAME]`
+    - If ever we want to make an update to our Stack, say with new versions of our application, we simply need to edit the configuration file accordingly and run `docker stack deploy` again
+        - This will perform a rolling update, where each instance of a container is gradually brought down and replaced with the new version over time
+        - This means that, for a time, users may be able to access the old and new versions of the application as instances of both will be available, until the new version is fully rolled out across the cluster
+    - We can view information on our services in a Stack with `docker stack services [STACK_NAME]`
+    - And we can remove a Stack with `docker stack rm [STACK_NAME]`
+    - Some commands in the Compose file are deprecated with Stack:
+        - `build:`
+            - `docker stack deploy` cannot build images from contexts - it can only pull them from a registry
+            - In a CI pipeline, it is recommended you build your images first and push them to either Docker Hub or a private registry
+            - This is best done with Docker Compose
+        - `container-name:`
+            - one of the main benefits of an orchestration tool is the ability to *scale horizontally* (i.e. add more instances of a given container)
+            - this means containers have to be assigned unique names, and thus can't be given fixed ones
+- Tutorial
+    - Deploy a two-service application with Stack deploy
+        - Frontend (serves HTML with blue background) and backend (gets the container host name and generates a random letter), both pre-built images
+        - yaml file to deploy them both, 10 replicas of each
+    - Perform a rolling update
+        - Frontend and backend images v2, green background and random number
+        - Edit yaml, stack deploy
+        - Refresh page, see how it changes
+- Exercises
+    - Deploy the Trio Task as a stack
+        - Stretch: deploy behind an NGINX container
+        - Stretch: create a rolling update with the Trio Task
